@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class GerenciadorCampi {
 
-    private Map<String, ArvoreBinariaCampus> campi;
+    private final Map<String, ArvoreBinariaCampus> campi;
 
     public GerenciadorCampi() {
         campi = new HashMap<>();
