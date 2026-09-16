@@ -93,26 +93,26 @@ class AVLTree3 {                            // início da classe que implementa 
         // calcula o fator de balanceamento para decidir se precisa rotacionar
 
         // 4 casos de desbalanceamento
-        if (balance > 1 && contato.getNome().compareTo(node.contato.getNome()) < 0) {
+        if (balance > 1 && contato.getNome().compareToIgnoreCase(node.esquerda.contato.getNome()) < 0) {
             return rotacaoDireita(node);
         }
         // Caso Left-Left (esquerda pesada e o valor foi inserido na subárvore esquerda-esquerda)
         // solução: rotação direita simples
 
-        if (balance < -1 && contato.getNome().compareTo(node.contato.getNome()) > 0) {
+        if (balance < -1 && contato.getNome().compareToIgnoreCase(node.direita.contato.getNome()) > 0) {
             return rotacaoEsquerda(node);
         }
         // Caso Right-Right (direita pesada e valor inserido à direita-direita)
         // solução: rotação esquerda simples
 
-        if (balance > 1 && contato.getNome().compareTo(node.contato.getNome()) > 0) {
+        if (balance > 1 && contato.getNome().compareToIgnoreCase(node.esquerda.contato.getNome()) > 0) {
             node.esquerda = rotacaoEsquerda(node.esquerda);
             return rotacaoDireita(node);
         }
         // Caso Left-Right (esquerda pesada, mas valor inserido na subárvore direita do filho esquerdo)
         // solução: dupla rotação (esquerda no filho esquerdo, depois direita no nó)
 
-        if (balance < -1 && contato.getNome().compareTo(node.contato.getNome()) < 0) {
+        if (balance < -1 && contato.getNome().compareToIgnoreCase(node.direita.contato.getNome()) < 0) {
             node.direita = rotacaoDireita(node.direita);
             return rotacaoEsquerda(node);
         }
