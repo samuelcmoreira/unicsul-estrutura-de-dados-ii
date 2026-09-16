@@ -75,10 +75,10 @@ class AVLTree3 {                            // início da classe que implementa 
         }
         // se node é null, alcançamos o local de inserção: cria e retorna novo nó
 
-        if (contato.getNome().compareTo(node.contato.getNome()) < 0) {
+        if (contato.getNome().compareToIgnoreCase(node.contato.getNome()) < 0) {
             node.esquerda = inserir(node.esquerda, contato); 
         }// se valor é menor, insere recursivamente na subárvore esquerda
-        else if (contato.getNome().compareTo(node.contato.getNome()) > 0) {
+        else if (contato.getNome().compareToIgnoreCase(node.contato.getNome()) > 0) {
             node.direita = inserir(node.direita, contato); 
         }// se valor é maior, insere recursivamente na subárvore direita
         else {
