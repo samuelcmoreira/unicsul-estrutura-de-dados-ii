@@ -6,12 +6,15 @@ public class Main {
     public static void main(String[] args) {
 
         GerenciadorCampi gerenciador = new GerenciadorCampi();
-        String menu = "SISTEMA ACADÊMICO - UNICSUL\n\n"
-                + "1 - Cadastrar novo aluno\n"
-                + "2 - Localizar aluno\n"
-                + "3 - Listar alunos do campus\n"
-                + "4 - Sair\n\n"
-                + "Escolha uma opção:";
+        String menu = """
+                      SISTEMA ACADÊMICO - UNICSUL
+                      
+                      1 - Cadastrar novo aluno
+                      2 - Localizar aluno
+                      3 - Listar alunos do campus
+                      4 - Sair
+                      
+                      Escolha uma opção:""";
         String[] campiOpcoes = {
                 "Anália Franco", "Guarulhos", "Liberdade", "Paulista",
                 "São Miguel", "Santo Amaro", "Villa Lobos"
@@ -25,7 +28,7 @@ public class Main {
             }
 
             switch (opcaoStr) {
-                case "1":
+                case "1" -> {
                     String campusCadastro = (String) JOptionPane.showInputDialog(
                             null,
                             "Selecione o Campus para matrícula:",
@@ -48,9 +51,9 @@ public class Main {
                         JOptionPane.showMessageDialog(null, "Erro: Aluno já existe em um dos campi ou campus inválido.",
                                 "Erro de Cadastro", JOptionPane.ERROR_MESSAGE);
                     }
-                    break;
+                }
 
-                case "2":
+                case "2" -> {
                     String alunoBusca = JOptionPane.showInputDialog("Digite o nome do Aluno para localizar:");
                     if (alunoBusca == null || alunoBusca.trim().isEmpty()) break;
 
@@ -60,9 +63,9 @@ public class Main {
                     } else {
                         JOptionPane.showMessageDialog(null, "Aluno não encontrado.", "Resultado da Busca", JOptionPane.INFORMATION_MESSAGE);
                     }
-                    break;
+                }
 
-                case "3":
+                case "3" -> {
                     String campusListagem = (String) JOptionPane.showInputDialog(
                             null,
                             "Selecione o Campus para listar alunos:",
@@ -80,16 +83,14 @@ public class Main {
                     } else {
                         JOptionPane.showMessageDialog(null, "Campus não encontrado.", "Erro", JOptionPane.ERROR_MESSAGE);
                     }
+                }
 
-                    break;
-
-                case "4":
+                case "4" -> {
                     JOptionPane.showMessageDialog(null, "Encerrando o sistema.");
                     System.exit(0);
-                    break;
+                }
 
-                default:
-                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente.");
+                default -> JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente.");
             }
         }
     }
